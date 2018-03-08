@@ -16,28 +16,56 @@
 
 var targetNumber;
 
-var losses; 
+var losses = 0; 
 
-var wins; 
+var wins = 0; 
 
-// Making the random Number display area //
+var images = [;
+
+previousNumber = 0; 
+
+// Making the random Number display area.  //
 
 targetNumber = Math.floor(Math.random() * 120) + 19; 
-console.log(targetNumber);
 
-$("#targetNumber").html('Target Number: ');
+$("#targetNumber").html('Target Number: ' + targetNumber);
 
 // Dynamically creating the crystals. //
 
-for (var i = 0; i < 4; i++) { 
+    for (var i = 0; i < ; i++) { 
+
+    
 
     var crystalNumber = Math.floor(Math.random() * 12) + 1; 
     
-    //console.log(crystalNumber);
 
-    var crystal = $("<div>");
-        crystal.attr("class", 'crystalImage');
+    var crystal = $("<img>");
+        crystal.attr({
+            "class":'crystalImage', // <-- Setting 
+            "data-crystalValue": crystalNumber 
+        });
 
     $(".crystals").append(crystal);
 
 }
+    // When we click the crystal, it will generate a hidden value. //
+    
+    $(".crystalImage").on('click', function () { 
+
+    var num = parseInt($(this).attr('data-crystalValue')); // <--- 'this' refers to any of the crystals I click on.
+    //console.log(num)
+
+    previousNumber += num; 
+
+    console.log(previousNumber);
+
+    if(previousNumber > targetNumber) {
+        alert("You lose!");
+        losses--;
+    } 
+    else if (previousNumber === targetNumber) {
+        alert("Congratulations! You win!");
+        wins++;
+    }
+
+}); 
