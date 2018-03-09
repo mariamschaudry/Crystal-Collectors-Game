@@ -10,8 +10,6 @@
 
 // ===================================================================================================== //
 
-//$( document ).ready(function() {
-
 // Variables //
 
 var targetNumber;
@@ -20,38 +18,45 @@ var losses = 0;
 
 var wins = 0; 
 
-var images = ["assets/images/pinkdiamond.jpg", "assets/images/turquoisecrystal.png", "assets/images/goldcrystal2.jpg","purplecrystal.png"];
+var images = ["assets/images/pink.jpg", "assets/images/teal.png", "assets/images/gold.jpg","assets/images/purple.png"];
 
 previousNumber = 0; 
 
 // Making the random Number display area.  //
 
-targetNumber = Math.floor(Math.random() * 120) + 19; 
+var resetAndStartGame = function () {
 
-$("#targetNumber").html('Target Number: ' + targetNumber);
+    $(".crystals").empty; 
 
-// Dynamically creating the crystals. //
+    targetNumber = Math.floor(Math.random() * 100) + 19; 
+
+    $("#targetNumber").html('Target Number: ' + targetNumber);
+
+    // Dynamically creating the crystals. //
 
 
-    for (var i = 0; i < images.length; i++) { 
-        console.log(images);
+        for (var i = 0; i < images.length; i++) { 
 
-    var crystalNumber = Math.floor(Math.random() * 12) + 1; 
-    
+            var crystalNumber = Math.floor(Math.random() * 12) + 1; 
+            
+            var crystal = $("<img>");
+                crystal.attr({
+                    "class":'crystalImage', // <-- Setting 
+                    "data-crystalValue": crystalNumber,
+                    "src": images[i]
+                });
 
-    var crystal = $("<img>");
-        crystal.attr({
-            "class":'crystalImage', // <-- Setting 
-            "data-crystalValue": crystalNumber
-            "src"
-        });
+            $(".crystals").append(crystal);
 
-    $(".crystals").append(crystal);
+        }
+    }
 
-}
+    resetAndStartGame();
     // When we click the crystal, it will generate a hidden value. //
     
-    $(".crystalImage").on('click', function () { 
+    $(document).on('click', ".crystalImage", function () {
+
+    //$(".crystalImage").on('click', function () { **********************************
 
     var num = parseInt($(this).attr('data-crystalValue')); // <--- 'this' refers to any of the crystals I click on.
     //console.log(num)
@@ -61,12 +66,23 @@ $("#targetNumber").html('Target Number: ' + targetNumber);
     console.log(previousNumber);
 
     if(previousNumber > targetNumber) {
+        losses++;
         alert("You lose!");
-        losses--;
+
+        previous = 0; 
+
+        $("#losses").html(losses);
+
+          
+        
     } 
     else if (previousNumber === targetNumber) {
         alert("Congratulations! You win!");
         wins++;
+
+        $("#wins").html(wins);
+
+        previous = 0;  
     }
 
 }); 

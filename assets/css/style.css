@@ -1,6 +1,18 @@
 .page-header {
-    background-color: white;    
+    background-color: white;
+    font-family: 'Sacramento', cursive;
 }
+
+h4 {
+    font-family: 'Oswald', sans-serif;
+    display: inline;
+}
+
+p {
+    display: inline;
+    font-size: 18px; 
+}
+
 
 .crystals {
     display: flex; 
@@ -10,8 +22,10 @@
 
 
 .crystalImage {
-    border: 1px solid black; 
-    height: 200px; 
-    width: 200px; 
+    height: 150px; 
+    width: 150px; 
 }
 
+#targetNumber {
+    font-family: 'Oswald', sans-serif;  
+}
