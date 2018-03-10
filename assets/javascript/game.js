@@ -26,7 +26,7 @@ previousNumber = 0;
 
 var resetAndStartGame = function () {
 
-    $(".crystals").empty; 
+    $(".crystals").empty(); 
 
     targetNumber = Math.floor(Math.random() * 100) + 19; 
 
@@ -34,14 +34,14 @@ var resetAndStartGame = function () {
 
     // Dynamically creating the crystals. //
 
+        //for (var i = 0; i < images.length; i++) { 
 
-        for (var i = 0; i < images.length; i++) { 
-
+        for (var i = 0; i < 4; i++) {
             var crystalNumber = Math.floor(Math.random() * 12) + 1; 
             
             var crystal = $("<img>");
                 crystal.attr({
-                    "class":'crystalImage', // <-- Setting 
+                    "class":'crystalImage',
                     "data-crystalValue": crystalNumber,
                     "src": images[i]
                 });
@@ -49,6 +49,8 @@ var resetAndStartGame = function () {
             $(".crystals").append(crystal);
 
         }
+
+        //$("previousNumber").html("Total Score: " + previousNumber);
     }
 
     resetAndStartGame();
@@ -56,33 +58,41 @@ var resetAndStartGame = function () {
     
     $(document).on('click', ".crystalImage", function () {
 
-    //$(".crystalImage").on('click', function () { **********************************
-
     var num = parseInt($(this).attr('data-crystalValue')); // <--- 'this' refers to any of the crystals I click on.
-    //console.log(num)
-
+    
     previousNumber += num; 
 
     console.log(previousNumber);
+    
+
+    //$("#previousNumber").html("Total score: " + previousNumber);
+
 
     if(previousNumber > targetNumber) {
+        
         losses++;
+        
         alert("You lose!");
-
-        previous = 0; 
-
+         
         $("#losses").html(losses);
 
-          
+        previousNumber = 0;
+
+        resetAndStartGame();
         
     } 
     else if (previousNumber === targetNumber) {
+        
         alert("Congratulations! You win!");
+        
         wins++;
 
         $("#wins").html(wins);
 
-        previous = 0;  
+        previousNumber = 0;
+
+        resetAndStartGame();  
+
     }
 
 }); 
