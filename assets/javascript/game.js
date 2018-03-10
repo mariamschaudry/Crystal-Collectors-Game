@@ -50,7 +50,7 @@ var resetAndStartGame = function () {
 
         }
 
-        //$("previousNumber").html("Total Score: " + previousNumber);
+        $("previousNumber").html(previousNumber);
     }
 
     resetAndStartGame();
@@ -65,7 +65,7 @@ var resetAndStartGame = function () {
     console.log(previousNumber);
     
 
-    //$("#previousNumber").html("Total score: " + previousNumber);
+    $("#previousNumber").html(previousNumber);
 
 
     if(previousNumber > targetNumber) {

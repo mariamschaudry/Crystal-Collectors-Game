@@ -9,15 +9,15 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
     <!-- jQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
     <!--- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Oswald|Sacramento" rel="stylesheet">
 
@@ -35,47 +35,59 @@
         </div>
     </div>
 
-
-    <p id="targetNumber"></p>
+    <div class = "row">
+            <div class = "col-xs-6">
+                <div class="panel">
+                        <div class="panel-body">
+                            <p id="targetNumber"></p>   
+                        </div>
+                </div>
+            </div>
     
+                <div class = "col-xs-6">
+                    <div class="panel">
+                            <div class="panel-body">
+                                <h4>Current Score =  </h4><p id = "previousNumber"></p>   
+                            </div>
+                    </div>
+                </div>
+        </div>
 
     <div class = "crystals">
        
     </div>
+
+    <div class = "row">
+            <div class = "col-xs-6">
+                <div class="panel">
+                        <div class="panel-body">
+                            <h4>Wins =  </h4><p id = "wins"></p>   
+                        </div>
+                </div>
+            </div>
+    
+                <div class = "col-xs-6">
+                    <div class="panel">
+                            <div class="panel-body">
+                                <h4>Losses =  </h4><p id = "losses"></p>   
+                            </div>
+                    </div>
+                </div>
+        </div>
 
     <div class = "col-md-12 container"></div>
     <div class="panel panel-default">
             <div class="panel-body">
               <h3 >How to Play:</h3>
               <p>At the start of the game, you will be given a random target number. Located below the number, there are four crystals.
-                By clicking on a crystal will add a specified amount of points to your total score. To win the game, match your total score with the target number. You lose the game
+                Clicking on a crystal will add a specified amount of points to your total score. To win the game, match your total score with the target number. You lose the game
                   if your total score goes above the random target number. The value of each crystal is hidden until clicked on.
                 Each time the game starts, the value of the crystals will change.</p>
             </div>
     </div>
+     
+    <div class="panel-footer"><a href="https://github.com/mariamschaudry">&copy; Mariam S. Chaudry 2018</a></div>
 
-    <div class = "row">
-        <div class = "col-xs-6">
-            <div class="panel">
-                    <div class="panel-body">
-                        <h4>Wins =  </h4><p id = "wins"></p>   
-                    </div>
-            </div>
-        </div>
-
-            <div class = "col-xs-6">
-                <div class="panel">
-                        <div class="panel-body">
-                            <h4>Losses =  </h4><p id = "losses"></p>   
-                        </div>
-                </div>
-            </div>
-    </div>
-
-    
-    
-    
-    
         <!-- JavaScript -->
     <script src="assets/javascript/game.js"></script>
 
